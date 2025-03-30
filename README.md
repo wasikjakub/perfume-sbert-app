@@ -2,6 +2,14 @@
 
 Projekt obejmuje utworzenie systemu rekomendacji perfum, który na bazie zadanego przez użytkownika zapytania będzie analizował oraz sugerował najbardziej dopasowane zapachy. System wykorzysta algorytmy uczenia maszynowego oraz analizę danych o preferencjach użytkowników, aby dostarczać spersonalizowane rekomendację. Rozwiązanie bazuję na technologii Flask+React oraz bazie danych w oparciu o MySQL.
 
+## Dodanie bibliotek
+
+Wszystkie konieczne biblioteki zostały umieszczone w pliku requirements.txt:
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Uruchamianie aplikacji Flask
 
 Aby uruchomić aplikację Flask należy w głównym folderze uruchomić komendę:
