@@ -33,3 +33,9 @@ Serwer uruchomi się domyślnie pod adresem:
 ```bash
 http://localhost:3000
 ```
+
+## Istotne linki
+
+[UI Design](https://www.figma.com/design/E4UgTio2RsqJcN4NMeOLsu/perfuME?node-id=1-7&t=DuF0V1ii2eGjdNuY-1)
+
+[Baza danych](https://mysql.agh.edu.pl/phpMyAdmin/index.php) -> konieczne jest bycie w sieci AGH
