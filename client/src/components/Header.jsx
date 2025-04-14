@@ -2,7 +2,7 @@ import { FaUser, FaHeart } from "react-icons/fa";
 
 export default function Header() {
   return (
-    <header className="bg-[#f6e9e6] px-6 py-4 flex justify-between items-center shadow-sm sticky top-0 z-50">
+    <header className="bg-[#f6e9e6] px-6 py-4 flex justify-between items-center shadow-sm sticky top-0 z-[50]">
       {/* LOGO - to be changed */}
       <div className="text-2xl font-bold text-gray-800 tracking-tight flex items-center gap-1">
         <span role="img" aria-label="perfume">🧴</span>
