@@ -1,31 +1,58 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import heroImg from '../assets/perfume_banner2.png';
 
 export default function Hero() {
   const [scrolled, setScrolled] = useState(false);
+  const heroRef = useRef(null);
+  const [heroWidth, setHeroWidth] = useState(null); // Initialize as null
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
 
+    const updateWidth = () => {
+      if (heroRef.current) {
+        const width = heroRef.current.getBoundingClientRect().width;
+        setHeroWidth(`${width}px`);
+      }
+    };
+
+    // Set initial width based on 70% of parent container
+    const setInitialWidth = () => {
+      if (heroRef.current) {
+        const parentWidth = heroRef.current.parentElement.offsetWidth;
+        const initialWidth = parentWidth * 0.7; // 70% of parent width
+        setHeroWidth(`${initialWidth}px`);
+      }
+    };
+
+    setInitialWidth();
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateWidth);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateWidth);
+    };
   }, []);
 
   return (
     <section className="mt-10 px-4">
       <div
+        ref={heroRef}
         className={`
-          max-w-[70%] mx-auto shadow-lg rounded-xl
+          mx-auto shadow-lg rounded-xl
           transition-all duration-500 ease-in-out
-          ${scrolled ? 'h-[260px]': 'h-[650px]'}
+          ${scrolled ? 'h-[260px] fixed top-0' : 'h-[650px]'}
           flex flex-col justify-end
         `}
         style={{
           backgroundImage: `url(${heroImg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          width: heroWidth || '70%', // Fallback to 70% if heroWidth isn't set yet
+          left: scrolled ? `calc(50% - ${parseInt(heroWidth || '0') / 2}px)` : undefined,
         }}
       >
         <div className="px-10 pb-12 w-full">
@@ -36,13 +63,11 @@ export default function Hero() {
           >
             Find your perfect scent
           </h1>
-
           {!scrolled && (
             <p className="text-white mb-6 max-w-xl text-xl transition-opacity duration-300">
-              Tell us about your desired perfumes and we’ll recommend the best scent for you
+              Tell us about your desired perfumes and we'll recommend the best scent for you
             </p>
           )}
-
           <div className="flex w-full max-w-[45rem]">
             <input
               type="text"
@@ -55,6 +80,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      {scrolled && <div className="h-[260px]"></div>}
     </section>
   );
 }
