@@ -1,14 +1,13 @@
 import Hero from '../components/Hero';
 import QuizSection from '../components/QuizSection';
+import WardrobeSection from '../components/WardrobeSection';
 
 const Home = () => {
   return (
-    <div className="space-y-16">
+    <div className="space-y-7">
       <Hero />
       <QuizSection />
-      <QuizSection />
-      <QuizSection />
-      {/* możesz tu dodać kolejne sekcje jak: Testimonials, NewsletterSignup, Footer */}
+      <WardrobeSection/>
     </div>
   );
 };
