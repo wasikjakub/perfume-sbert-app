@@ -96,7 +96,6 @@ export default function Hero() {
           onClick={handleHeroClick}
         >
           <div className="px-10 pb-12 w-full flex items-end">
-            {/* Left section: Title, subtitle, search bar */}
             <div className="flex-1">
               <h1 className={`text-white font-bold mb-4 transition-all duration-500 ${scrolled ? 'text-3xl' : 'text-5xl'}`}>
                 Find your perfect scent
@@ -123,12 +122,11 @@ export default function Hero() {
                 </button>
               </div>
             </div>
-            {/* Right section: Recommendations */}
             {recommendations.length > 0 && (
               <div className="w-[27rem] ml-16 flex flex-col mt-8 mr-8 relative">
                 <button
                   onClick={clearRecommendations}
-                  className="absolute top-0 right-0 text-white text-2xl font-bold p-2 rounded-full hover:bg-[rgba(255,255,255,0.9)] transition-colors"
+                  className="absolute top-0 right-0 text-white text-2xl font-bold p-1"
                   aria-label="Clear recommendations"
                 >
                   ✕
@@ -160,7 +158,6 @@ export default function Hero() {
         </div>
       </div>
       <div className="h-[260px]"></div>
-      {/* Inline CSS for fade-in animation and hover text color */}
       <style>
         {`
           @keyframes fadeIn {
