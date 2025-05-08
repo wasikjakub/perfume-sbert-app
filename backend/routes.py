@@ -5,6 +5,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 import pymysql
 import pandas as pd
 from flask_cors import CORS
+import re
+from sentence_transformers import SentenceTransformer, util
+from sklearn.preprocessing import MinMaxScaler
+from rapidfuzz import fuzz, process
 
 api = Blueprint('api', __name__)
 CORS(api)
@@ -48,16 +52,48 @@ def recommend_perfumes():
         df['BaseNotes'].fillna('')
     )
 
-    vectorizer = TfidfVectorizer(stop_words='english')
-    tfidf_matrix = vectorizer.fit_transform(df['text_features'])
+    # Sentence transformer model
+    model = SentenceTransformer('all-MiniLM-L6-v2')
+    text_features_list = df['text_features'].tolist()
+    embeddings = model.encode(text_features_list, convert_to_tensor=True)
+    user_embedding = model.encode(user_prompt, convert_to_tensor=True)
+    cos_scores = util.cos_sim(user_embedding, embeddings).cpu().numpy().flatten()
+    df['similarity'] = cos_scores
 
-    user_vec = vectorizer.transform([user_prompt])
+    unique_accords = set()
+    for row in df['Accords'].dropna():
+        matches = re.findall(r'([\w\s\-]+)\s*\(\d', row)
+        unique_accords.update(name.strip() for name in matches)
 
-    cos_similarities = cosine_similarity(user_vec, tfidf_matrix).flatten()
+    unique_accords_list = list(unique_accords)
+    prompt_words = re.findall(r'\b\w+\b', user_prompt.lower())
+    matched_accords = set()
+    threshold = 80
 
-    top_indices = cos_similarities.argsort()[::-1][:5]
-    top_perfumes = df.iloc[top_indices].copy()
-    top_perfumes['similarity'] = cos_similarities[top_indices]
+    for word in prompt_words:
+        match = process.extractOne(word, unique_accords_list, scorer=fuzz.partial_ratio)
+        if match and match[1] >= threshold:
+            matched_accords.add(match[0])
 
-    recommendations = top_perfumes[top_perfumes['Name'].notna()]
-    return jsonify(recommendations.to_dict(orient='records'))
+    def extract_accord_scores(accords_string, matched_accords):
+        scores = {}
+        for match in matched_accords:
+            pattern = re.compile(rf'{re.escape(match)}\s*\(([\d\.]+)%\)', re.IGNORECASE)
+            result = pattern.search(accords_string)
+            if result:
+                scores[match] = float(result.group(1))
+        return scores
+
+    df['matched_accord_scores'] = df['Accords'].apply(lambda x: extract_accord_scores(str(x), matched_accords))
+    df['accord_match_score'] = df['matched_accord_scores'].apply(lambda d: sum(d.values()) if d else 0)
+
+    scaler = MinMaxScaler()
+    df['similarity_norm'] = scaler.fit_transform(df[['similarity']])
+    df['accord_score_norm'] = scaler.fit_transform(df[['accord_match_score']])
+    alpha = 0.7
+    df['final_score'] = alpha * df['similarity_norm'] + (1 - alpha) * df['accord_score_norm']
+
+    top_recommendations = df.sort_values(by='final_score', ascending=False).head(5)
+    response_data = top_recommendations[['Name', 'Designer', 'Description', 'Accords', 'TopNotes', 'MiddleNotes', 'BaseNotes', 'similarity', 'accord_match_score', 'final_score']]
+    print(top_recommendations[['Name', 'Designer', 'final_score']])
+    return jsonify(response_data.to_dict(orient='records'))
