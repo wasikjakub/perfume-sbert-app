@@ -6,3 +6,4 @@ client/node_modules/
 
 # Ignore environment files
 .env
+backend/__pycache__
