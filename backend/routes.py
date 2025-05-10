@@ -3,6 +3,7 @@ from sqlalchemy import create_engine, text
 import pandas as pd
 from flask_cors import CORS
 from backend.services.recommender import PerfumeRecommender
+from backend.services.quiz_recommender import QuizRecommender
 
 api = Blueprint('api', __name__)
 CORS(api)
@@ -37,5 +38,29 @@ def recommend_perfumes():
 
     recommender = PerfumeRecommender(df)
     recommendations = recommender.recommend(user_prompt)
+
+    return jsonify(recommendations)
+
+
+@api.route('/api/quiz', methods=['POST'])
+def quiz():
+    data = request.get_json()
+    preferences = data.get("preferences", {})
+
+    if not preferences:
+        return jsonify({"error": "No preferences provided"}), 400
+
+    query = text("SELECT * FROM Perfumes")
+    with engine.connect() as connection:
+        result = connection.execute(query)
+        perfumes = [dict(row._mapping) for row in result]
+
+    df = pd.DataFrame(perfumes)
+
+    if df.empty or 'Name' not in df.columns:
+        return jsonify({"error": "No valid perfume data found"}), 500
+
+    recommender = QuizRecommender(df)
+    recommendations = recommender.recommend(preferences)
 
     return jsonify(recommendations)
