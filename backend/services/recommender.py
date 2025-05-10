@@ -1,3 +1,4 @@
+used_recommendations_cache = {}
 import re
 from sentence_transformers import SentenceTransformer, util
 from sklearn.preprocessing import MinMaxScaler
@@ -6,10 +7,13 @@ from rapidfuzz import fuzz, process
 class PerfumeRecommender:
     def __init__(self, df, alpha=0.7):
         self.df = df.copy()
+        # Drop rows where Name is empty or null
+        self.df = self.df[self.df['Name'].fillna('').str.strip() != '']
         self.alpha = alpha
         self.model = SentenceTransformer('all-MiniLM-L6-v2')
         self.scaler = MinMaxScaler()
         self.matched_accords = set()
+        self.used_recommendations = set()
 
     def extract_text_features(self):
         self.df['text_features'] = (
@@ -60,9 +64,18 @@ class PerfumeRecommender:
         self.df['accord_score_norm'] = self.scaler.fit_transform(self.df[['accord_match_score']])
         self.df['final_score'] = self.alpha * self.df['similarity_norm'] + (1 - self.alpha) * self.df['accord_score_norm']
 
-    def get_top_recommendations(self, top_n=5):
-        top = self.df.sort_values(by='final_score', ascending=False).head(top_n)
-        return top[['Name', 'Designer', 'Description', 'Accords', 'TopNotes', 'MiddleNotes', 'BaseNotes', 'similarity', 'accord_match_score', 'final_score']].to_dict(orient='records')
+    def get_top_recommendations(self, prompt, top_n=5):
+        used = used_recommendations_cache.get(prompt, set())
+        top = self.df[~self.df['Name'].isin(used)] \
+            .sort_values(by='final_score', ascending=False) \
+            .head(top_n)
+
+        new_recommendations = top['Name'].tolist()
+        used.update(new_recommendations)
+        used_recommendations_cache[prompt] = used
+
+        return top[['Name', 'Designer', 'Description', 'Accords', 'TopNotes', 'MiddleNotes', 'BaseNotes',
+                    'similarity', 'accord_match_score', 'final_score', 'URL']].to_dict(orient='records')
 
     def recommend(self, prompt):
         self.extract_text_features()
@@ -70,4 +83,4 @@ class PerfumeRecommender:
         self.match_accords(prompt)
         self.extract_accord_scores()
         self.compute_final_scores()
-        return self.get_top_recommendations()
+        return self.get_top_recommendations(prompt)
