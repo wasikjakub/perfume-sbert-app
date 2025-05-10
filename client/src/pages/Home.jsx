@@ -1,13 +1,15 @@
-import Hero from '../components/Hero';
-import QuizSection from '../components/QuizSection';
-import WardrobeSection from '../components/WardrobeSection';
+import Hero from '../components/features/Home/Hero';
+import QuizSection from '../components/features/Home/QuizSection';
+import WardrobeSection from '../components/features/Home/WardrobeSection';
+import NotesSection from '../components/features/Home/NotesSection'
 
 const Home = () => {
   return (
     <div className="space-y-7">
       <Hero />
       <QuizSection />
-      <WardrobeSection/>
+      <WardrobeSection />
+      <NotesSection />
     </div>
   );
 };

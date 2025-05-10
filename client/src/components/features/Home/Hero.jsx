@@ -1,54 +1,28 @@
 import { useState, useEffect } from "react";
-import heroImg from "../assets/perfume_banner2.png";
+import { useRecommendations } from "../../../hooks/useRecommendations";
+import RecommendationTile from "../../shared/RecommendationTile";
+import heroImg from "../../../assets/perfume_banner2.png";
 
 export default function Hero() {
   const [scrolled, setScrolled] = useState(false);
-  const [prompt, setPrompt] = useState("");
-  const [recommendations, setRecommendations] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [freshSearch, setFreshSearch] = useState(false);
+  const {
+    prompt,
+    setPrompt,
+    recommendations,
+    loading,
+    freshSearch,
+    handleSearch,
+    clearRecommendations,
+  } = useRecommendations();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleSearch = async () => {
-    if (!prompt) return;
-    setLoading(true);
-    setRecommendations([]);
-    setFreshSearch(true);
-
-    try {
-      const res = await fetch("http://127.0.0.1:5000/api/recommend", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt }),
-      });
-
-      const data = await res.json();
-      console.log("Data received:", data);
-      setRecommendations(data);
-    } catch (err) {
-      console.error("Error fetching recommendations:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const clearRecommendations = () => {
-    setRecommendations([]);
-    setFreshSearch(false);
-  };
-
   const handleHeroClick = () => {
-    if (scrolled) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    if (scrolled) window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -109,7 +83,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Right Column - Recommendations */}
+            {/* Right Column */}
             {recommendations.length > 0 && (
               <div className="w-full lg:w-[27rem] flex flex-col relative">
                 <button
@@ -132,24 +106,12 @@ export default function Hero() {
                   }}
                 >
                   {recommendations.map((perfume, index) => (
-                    <a
+                    <RecommendationTile
                       key={index}
-                      href={perfume.URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block p-4 rounded-lg shadow hover:bg-[rgba(255,255,255,0.9)] transition-colors recommendation-tile"
-                      style={{
-                        backgroundColor: "rgba(255, 255, 255, 0.4)",
-                        animation: freshSearch
-                          ? `fadeIn 0.5s ease-in ${index * 0.3}s forwards`
-                          : "none",
-                        opacity: freshSearch ? 0 : 1,
-                      }}
-                    >
-                      <strong className="text-xl text-[#1D0200]">
-                        {perfume.Name} by {perfume.Designer}
-                      </strong>
-                    </a>
+                      perfume={perfume}
+                      index={index}
+                      freshSearch={freshSearch}
+                    />
                   ))}
                 </div>
               </div>
@@ -174,7 +136,6 @@ export default function Hero() {
             color: rgb(87, 66, 38);
           }
 
-          /* Scrollbar styles */
           ::-webkit-scrollbar {
             width: 6px;
           }
