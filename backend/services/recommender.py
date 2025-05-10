@@ -75,7 +75,7 @@ class PerfumeRecommender:
         used_recommendations_cache[prompt] = used
 
         return top[['Name', 'Designer', 'Description', 'Accords', 'TopNotes', 'MiddleNotes', 'BaseNotes',
-                    'similarity', 'accord_match_score', 'final_score']].to_dict(orient='records')
+                    'similarity', 'accord_match_score', 'final_score', 'URL']].to_dict(orient='records')
 
     def recommend(self, prompt):
         self.extract_text_features()
