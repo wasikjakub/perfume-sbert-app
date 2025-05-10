@@ -4,16 +4,19 @@ import pandas as pd
 from flask_cors import CORS
 from backend.services.recommender import PerfumeRecommender
 from backend.services.quiz_recommender import QuizRecommender
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+username = os.getenv("DB_USER")
+password = os.getenv("DB_PASSWORD")
+host =  os.getenv("DB_HOST")
+port = os.getenv("DB_PORT")
+database =  os.getenv("DB_DATABASE")
 
 api = Blueprint('api', __name__)
 CORS(api)
-
-# Database connection details
-username = 'michals2'
-password = 'Nv1VZRmuTxRvJn3u'
-host = 'mysql.agh.edu.pl'
-port = 3306
-database = 'michals2'
 
 connection_string = f'mysql+pymysql://{username}:{password}@{host}:{port}/{database}'
 engine = create_engine(connection_string)
