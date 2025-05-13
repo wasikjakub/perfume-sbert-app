@@ -35,7 +35,7 @@ export default function Hero() {
             ${
               scrolled
                 ? "h-[260px] fixed top-0 z-20 cursor-pointer w-full md:w-[90%] lg:w-[70%]"
-                : "h-[650px] w-full md:w-[90%] lg:w-[70%]"
+                : "h-[calc(100vh-2rem)] max-h-[650px] w-full md:w-[90%] lg:w-[70%]"
             }
             flex flex-col justify-end
             left-0 right-0
@@ -61,6 +61,15 @@ export default function Hero() {
                 <p className="text-white mb-6 max-w-xl text-xl transition-opacity duration-300">
                   Tell us about your desired perfumes and we'll recommend the
                   best scent for you
+                  <span className="relative group inline-block align-baseline ml-1 cursor-pointer">
+                    <span className="inline-block w-5 h-5 rounded-full bg-[#c4a075] text-white text-xs font-bold text-center leading-5">
+                      ?
+                    </span>
+                    <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-[260px] bg-white text-black text-sm rounded-md shadow-md px-3 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50 text-center">
+                      Describe any scent you can imagine in your words, for example:
+                      "I want vanilla perfumes with wooden notes for women"
+                    </span>
+                  </span>
                 </p>
               )}
               <div className="flex w-full max-w-full mt-4 gap-4">
