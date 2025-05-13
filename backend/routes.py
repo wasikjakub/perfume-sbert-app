@@ -29,7 +29,7 @@ def recommend_perfumes():
     if not user_prompt:
         return jsonify({"error": "No prompt provided"}), 400
 
-    query = text("SELECT * FROM Perfumes")
+    query = text("SELECT * FROM Perfumes_v2")
     with engine.connect() as connection:
         result = connection.execute(query)
         perfumes = [dict(row._mapping) for row in result]
@@ -53,7 +53,7 @@ def quiz():
     if not preferences:
         return jsonify({"error": "No preferences provided"}), 400
 
-    query = text("SELECT * FROM Perfumes")
+    query = text("SELECT * FROM Perfumes_v2")
     with engine.connect() as connection:
         result = connection.execute(query)
         perfumes = [dict(row._mapping) for row in result]
