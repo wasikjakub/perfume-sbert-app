@@ -1,5 +1,6 @@
 used_recommendations_cache = {}
 import re
+import numpy as np
 from sentence_transformers import SentenceTransformer, util
 from sklearn.preprocessing import MinMaxScaler
 from rapidfuzz import fuzz, process
@@ -10,7 +11,8 @@ class PerfumeRecommender:
         # Drop rows where Name is empty or null
         self.df = self.df[self.df['Name'].fillna('').str.strip() != '']
         self.alpha = alpha
-        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        self.model = SentenceTransformer('D:/semestr_10/laboratorium/perfume-recommendation-system/backend/recommend_models/transformer_model')
+        self.embeddings = np.load('D:/semestr_10/laboratorium/perfume-recommendation-system/backend/recommend_models/embeddings.npy')
         self.scaler = MinMaxScaler()
         self.matched_accords = set()
         self.used_recommendations = set()
@@ -25,11 +27,9 @@ class PerfumeRecommender:
             self.df['BaseNotes'].fillna('')
         )
 
-    def compute_similarity(self, prompt):
-        text_features_list = self.df['text_features'].tolist()
-        embeddings = self.model.encode(text_features_list, convert_to_tensor=True)
+    def compute_similarity(self, prompt):        
         user_embedding = self.model.encode(prompt, convert_to_tensor=True)
-        cos_scores = util.cos_sim(user_embedding, embeddings).cpu().numpy().flatten()
+        cos_scores = util.cos_sim(user_embedding, self.embeddings).cpu().numpy().flatten()
         self.df['similarity'] = cos_scores
 
     def match_accords(self, prompt, threshold=80):
