@@ -1,9 +1,16 @@
 used_recommendations_cache = {}
 import re
 import numpy as np
+import os
+
 from sentence_transformers import SentenceTransformer, util
 from sklearn.preprocessing import MinMaxScaler
 from rapidfuzz import fuzz, process
+
+#Fix for paths issue
+current_dir = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(current_dir, '../recommend_models/transformer_model')
+embeddings_path = os.path.join(current_dir, '../recommend_models/embeddings.npy')
 
 class PerfumeRecommender:
     def __init__(self, df, alpha=0.7):
@@ -11,8 +18,8 @@ class PerfumeRecommender:
         # Drop rows where Name is empty or null
         self.df = self.df[self.df['Name'].fillna('').str.strip() != '']
         self.alpha = alpha
-        self.model = SentenceTransformer('D:/semestr_10/laboratorium/perfume-recommendation-system/backend/recommend_models/transformer_model')
-        self.embeddings = np.load('D:/semestr_10/laboratorium/perfume-recommendation-system/backend/recommend_models/embeddings.npy')
+        self.model = SentenceTransformer(model_path)
+        self.embeddings = np.load(embeddings_path)
         self.scaler = MinMaxScaler()
         self.matched_accords = set()
         self.used_recommendations = set()
