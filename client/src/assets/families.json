@@ -1,0 +1,131 @@
+[
+  {
+    "family": "Gourmand",
+    "description": "Gourmand fragrances smell edible and sweet, featuring notes like vanilla, caramel, chocolate, and coffee. They are warm, comforting, and delicious.",
+    "nodes": [
+      "sweet",
+      "vanilla",
+      "lactonic",
+      "nutty",
+      "caramel",
+      "honey",
+      "coconut",
+      "coffee",
+      "cacao",
+      "rum",
+      "chocolate"
+    ]
+  },
+  {
+    "family": "Woody",
+    "description": "Woody fragrances are warm and opulent, built around woody notes like sandalwood, cedar, and patchouli. They convey depth and richness.",
+    "nodes": [
+      "woody",
+      "earthy",
+      "patchouli",
+      "oud",
+      "smoky",
+      "tobacco",
+      "mossy",
+      "conifer"
+    ]
+  },
+  {
+    "family": "Floral",
+    "description": "Floral scents are derived from flowers and are often soft, romantic, and feminine. Common floral notes include rose, jasmine, and violet.",
+    "nodes": [
+      "powdery",
+      "floral",
+      "white floral",
+      "rose",
+      "iris",
+      "violet",
+      "yellow floral",
+      "tuberose",
+      "aldehydic"
+    ]
+  },
+  {
+    "family": "Fresh",
+    "description": "Fresh fragrances are light, clean, and energetic. They often feature citrus, green, or aquatic notes that evoke a sense of brightness.",
+    "nodes": [
+      "citrus",
+      "fresh spicy",
+      "fresh",
+      "green",
+      "aquatic",
+      "ozonic",
+      "marine",
+      "salty"
+    ]
+  },
+  {
+    "family": "Aromatic",
+    "description": "Aromatic fragrances blend herbal, spicy, and fresh notes. Often used in masculine perfumery, they include lavender, rosemary, and sage.",
+    "nodes": [
+      "aromatic",
+      "lavender",
+      "herbal",
+      "anis"
+    ]
+  },
+  {
+    "family": "Fruity",
+    "description": "Fruity scents highlight juicy and sweet aromas from fruits like berries, apples, and tropical ingredients. They are often playful and vibrant.",
+    "nodes": [
+      "fruity",
+      "tropical",
+      "cherry"
+    ]
+  },
+  {
+    "family": "Oriental",
+    "description": "Oriental scents are rich and exotic, often featuring spices, amber, and resins. They are known for their warmth and sensuality.",
+    "nodes": [
+      "warm spicy",
+      "amber",
+      "balsamic",
+      "soft spicy",
+      "cinnamon"
+    ]
+  },
+  {
+    "family": "Animalic",
+    "description": "Animalic scents are musky, deep, and sensual, often used in small amounts to add intensity and mystery. They can be polarizing but powerful.",
+    "nodes": [
+      "musky",
+      "animalic"
+    ]
+  },
+  {
+    "family": "Leather",
+    "description": "Leather scents are strong and bold, evoking the smell of leather goods. They often include smoky or animalic undertones.",
+    "nodes": [
+      "leather"
+    ]
+  },
+  {
+    "family": "Other",
+    "description": "These scents do not fit neatly into a traditional category. They may be experimental, synthetic, or unique one-off aromas.",
+    "nodes": [
+      "metallic",
+      "soapy",
+      "sour",
+      "savory",
+      "mineral",
+      "Champagne",
+      "whiskey",
+      "coca-cola",
+      "beeswax",
+      "bitter",
+      "alcohol",
+      "wine",
+      "vodka",
+      "terpenic",
+      "vinyl",
+      "camphor",
+      "sand",
+      "cannabis"
+    ]
+  }
+]
