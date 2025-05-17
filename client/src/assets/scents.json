@@ -1,0 +1,422 @@
+[
+  {
+    "accord": "sweet",
+    "count": 679,
+    "popularity": "high",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "woody",
+    "count": 672,
+    "popularity": "high",
+    "family": "Woody"
+  },
+  {
+    "accord": "powdery",
+    "count": 575,
+    "popularity": "high",
+    "family": "Floral"
+  },
+  {
+    "accord": "vanilla",
+    "count": 505,
+    "popularity": "high",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "citrus",
+    "count": 499,
+    "popularity": "high",
+    "family": "Fresh"
+  },
+  {
+    "accord": "aromatic",
+    "count": 441,
+    "popularity": "high",
+    "family": "Aromatic"
+  },
+  {
+    "accord": "fruity",
+    "count": 438,
+    "popularity": "high",
+    "family": "Fruity"
+  },
+  {
+    "accord": "warm spicy",
+    "count": 435,
+    "popularity": "high",
+    "family": "Oriental"
+  },
+  {
+    "accord": "amber",
+    "count": 416,
+    "popularity": "high",
+    "family": "Oriental"
+  },
+  {
+    "accord": "fresh spicy",
+    "count": 367,
+    "popularity": "high",
+    "family": "Fresh"
+  },
+  {
+    "accord": "floral",
+    "count": 356,
+    "popularity": "high",
+    "family": "Floral"
+  },
+  {
+    "accord": "white floral",
+    "count": 343,
+    "popularity": "high",
+    "family": "Floral"
+  },
+  {
+    "accord": "musky",
+    "count": 298,
+    "popularity": "high",
+    "family": "Animalic"
+  },
+  {
+    "accord": "fresh",
+    "count": 273,
+    "popularity": "high",
+    "family": "Fresh"
+  },
+  {
+    "accord": "green",
+    "count": 201,
+    "popularity": "high",
+    "family": "Fresh"
+  },
+  {
+    "accord": "balsamic",
+    "count": 172,
+    "popularity": "medium",
+    "family": "Oriental"
+  },
+  {
+    "accord": "rose",
+    "count": 167,
+    "popularity": "medium",
+    "family": "Floral"
+  },
+  {
+    "accord": "earthy",
+    "count": 129,
+    "popularity": "medium",
+    "family": "Woody"
+  },
+  {
+    "accord": "patchouli",
+    "count": 110,
+    "popularity": "medium",
+    "family": "Woody"
+  },
+  {
+    "accord": "animalic",
+    "count": 104,
+    "popularity": "medium",
+    "family": "Animalic"
+  },
+  {
+    "accord": "soft spicy",
+    "count": 103,
+    "popularity": "medium",
+    "family": "Oriental"
+  },
+  {
+    "accord": "leather",
+    "count": 98,
+    "popularity": "medium",
+    "family": "Leather"
+  },
+  {
+    "accord": "lavender",
+    "count": 90,
+    "popularity": "medium",
+    "family": "Aromatic"
+  },
+  {
+    "accord": "lactonic",
+    "count": 82,
+    "popularity": "medium",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "iris",
+    "count": 80,
+    "popularity": "medium",
+    "family": "Floral"
+  },
+  {
+    "accord": "aquatic",
+    "count": 79,
+    "popularity": "medium",
+    "family": "Fresh"
+  },
+  {
+    "accord": "nutty",
+    "count": 66,
+    "popularity": "medium",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "tropical",
+    "count": 60,
+    "popularity": "medium",
+    "family": "Fruity"
+  },
+  {
+    "accord": "caramel",
+    "count": 60,
+    "popularity": "medium",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "oud",
+    "count": 58,
+    "popularity": "medium",
+    "family": "Woody"
+  },
+  {
+    "accord": "violet",
+    "count": 58,
+    "popularity": "medium",
+    "family": "Floral"
+  },
+  {
+    "accord": "almond",
+    "count": 56,
+    "popularity": "medium",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "yellow floral",
+    "count": 56,
+    "popularity": "medium",
+    "family": "Floral"
+  },
+  {
+    "accord": "smoky",
+    "count": 53,
+    "popularity": "medium",
+    "family": "Woody"
+  },
+  {
+    "accord": "cinnamon",
+    "count": 50,
+    "popularity": "medium",
+    "family": "Oriental"
+  },
+  {
+    "accord": "tobacco",
+    "count": 48,
+    "popularity": "niche",
+    "family": "Woody"
+  },
+  {
+    "accord": "tuberose",
+    "count": 48,
+    "popularity": "niche",
+    "family": "Floral"
+  },
+  {
+    "accord": "herbal",
+    "count": 46,
+    "popularity": "niche",
+    "family": "Aromatic"
+  },
+  {
+    "accord": "aldehydic",
+    "count": 39,
+    "popularity": "niche",
+    "family": "Floral"
+  },
+  {
+    "accord": "mossy",
+    "count": 38,
+    "popularity": "niche",
+    "family": "Woody"
+  },
+  {
+    "accord": "honey",
+    "count": 37,
+    "popularity": "niche",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "coconut",
+    "count": 35,
+    "popularity": "niche",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "cherry",
+    "count": 34,
+    "popularity": "niche",
+    "family": "Fruity"
+  },
+  {
+    "accord": "ozonic",
+    "count": 33,
+    "popularity": "niche",
+    "family": "Fresh"
+  },
+  {
+    "accord": "marine",
+    "count": 28,
+    "popularity": "niche",
+    "family": "Fresh"
+  },
+  {
+    "accord": "coffee",
+    "count": 27,
+    "popularity": "niche",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "salty",
+    "count": 22,
+    "popularity": "niche",
+    "family": "Fresh"
+  },
+  {
+    "accord": "cacao",
+    "count": 22,
+    "popularity": "niche",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "rum",
+    "count": 21,
+    "popularity": "niche",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "chocolate",
+    "count": 17,
+    "popularity": "niche",
+    "family": "Gourmand"
+  },
+  {
+    "accord": "metallic",
+    "count": 14,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "soapy",
+    "count": 8,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "sour",
+    "count": 6,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "savory",
+    "count": 6,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "anis",
+    "count": 6,
+    "popularity": "niche",
+    "family": "Aromatic"
+  },
+  {
+    "accord": "conifer",
+    "count": 5,
+    "popularity": "niche",
+    "family": "Woody"
+  },
+  {
+    "accord": "mineral",
+    "count": 4,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "Champagne",
+    "count": 3,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "whiskey",
+    "count": 3,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "coca-cola",
+    "count": 3,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "beeswax",
+    "count": 2,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "bitter",
+    "count": 2,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "alcohol",
+    "count": 2,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "wine",
+    "count": 2,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "vodka",
+    "count": 2,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "terpenic",
+    "count": 1,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "vinyl",
+    "count": 1,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "camphor",
+    "count": 1,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "sand",
+    "count": 1,
+    "popularity": "niche",
+    "family": "Other"
+  },
+  {
+    "accord": "cannabis",
+    "count": 1,
+    "popularity": "niche",
+    "family": "Other"
+  }
+]

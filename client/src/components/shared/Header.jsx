@@ -4,11 +4,12 @@ export default function Header() {
   return (
     <header className="bg-[#f6e9e6] px-6 py-6 flex justify-between items-center shadow-sm sticky top-0 z-[50]">
       {/* LOGO - to be changed */}
-      <div className="text-2xl font-bold text-gray-800 tracking-tight flex items-center gap-1">
-        <span role="img" aria-label="perfume">🧴</span>
-        <span>
-          perfu<span className="text-[#c4a075]">ME</span>
-        </span>
+      <div className="flex items-center">
+        <img
+          src="/logo_perfume.png"
+          alt="perfuME logo"
+          className="h-12 scale-[3] object-contain ml-[1cm]"
+        />
       </div>
 
       {/* SEARCH + ICONS */}
