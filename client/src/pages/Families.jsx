@@ -24,17 +24,20 @@ const Families = () => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto font-work-sans">
-      <h1 className="text-4xl font-extrabold mb-12 text-center text-[black] tracking-wide select-none">
-      {/* <h1 className="text-4xl font-extrabold mb-12 text-center text-[#c4a075] tracking-wide select-none"> */}
+    <div className="p-6 max-w-4xl mx-auto font-work-sans mb-16">
+      <h1 className="text-4xl font-extrabold mb-4 text-center text-[black] tracking-wide select-none">
         Fragrance Families
       </h1>
+      <p className="text-lg text-center text-gray-700 mt-4 max-w-2xl mx-auto">
+        Perfumes can express your personality, mood, or vibe. Choosing the right fragrance is about finding one that truly resonates with how you feel. 
+        Here, you can explore the most prominent fragrance families — click on any that interest you to learn more and discover example scents, which can later be included in your prompt.
+      </p>
 
-      <ul className="space-y-6">
+      <ul className="space-y-6 mt-10">
         {familiesData.map(({ family, description, nodes }) => (
           <li
             key={family}
-            className="bg-white rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-transform duration-300 cursor-pointer p-6"
+            className="rounded-2xl transform hover:scale-[1.02] transition-transform duration-300 cursor-pointer p-6 text-center"
           >
             <div
               className="text-3xl font-semibold text-[black] hover:text-[#a88c61] select-none"

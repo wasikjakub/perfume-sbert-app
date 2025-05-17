@@ -2,6 +2,7 @@ used_recommendations_cache = {}
 import re
 import numpy as np
 import os
+import torch
 
 from sentence_transformers import SentenceTransformer, util
 from sklearn.preprocessing import MinMaxScaler
@@ -34,8 +35,11 @@ class PerfumeRecommender:
             self.df['BaseNotes'].fillna('')
         )
 
-    def compute_similarity(self, prompt):        
+    def compute_similarity(self, prompt):
         user_embedding = self.model.encode(prompt, convert_to_tensor=True)
+        device = 'cuda' if user_embedding.is_cuda else 'cpu'
+        user_embedding = user_embedding.to(device)
+        self.embeddings = torch.tensor(self.embeddings).to(device)
         cos_scores = util.cos_sim(user_embedding, self.embeddings).cpu().numpy().flatten()
         self.df['similarity'] = cos_scores
 

@@ -9,6 +9,7 @@ export default function QuizSection() {
       buttonText="Learn more"
       image={notesImage}
       imagePosition="right"
+      buttonLink="/families"
     />
   );
 }

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function FeatureSection({
   title,
@@ -7,6 +8,7 @@ export default function FeatureSection({
   image,
   imagePosition = "right",
   onClick,
+  buttonLink,
 }) {
   const isImageLeft = imagePosition === "left";
 
@@ -44,12 +46,24 @@ export default function FeatureSection({
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{title}</h2>
           <p className="text-gray-600 text-2xl mb-8">{description}</p>
-          <button
-            onClick={onClick}
-            className="bg-[#c4a075] text-white font-semibold px-8 py-4 rounded-full text-3xl hover:bg-[#b18b60] transition"
-          >
-            {buttonText}
-          </button>
+          {buttonText && buttonLink ? (
+            <Link to={buttonLink} onClick={() => window.scrollTo(0, 0)}>
+              <button
+                className="bg-[#c4a075] text-white font-semibold px-8 py-4 rounded-full text-3xl hover:bg-[#b18b60] transition"
+              >
+                {buttonText}
+              </button>
+            </Link>
+          ) : (
+            buttonText && (
+              <button
+                onClick={onClick}
+                className="bg-[#c4a075] text-white font-semibold px-8 py-4 rounded-full text-3xl hover:bg-[#b18b60] transition"
+              >
+                {buttonText}
+              </button>
+            )
+          )}
         </div>
       </div>
     </motion.section>
