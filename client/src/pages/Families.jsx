@@ -28,10 +28,17 @@ const Families = () => {
       <h1 className="text-4xl font-extrabold mb-4 text-center text-[black] tracking-wide select-none">
         Fragrance Families
       </h1>
-      <p className="text-lg text-center text-gray-700 mt-4 max-w-2xl mx-auto">
-        Perfumes can express your personality, mood, or vibe. Choosing the right fragrance is about finding one that truly resonates with how you feel. 
-        Here, you can explore the most prominent fragrance families — click on any that interest you to learn more and discover example scents, which can later be included in your prompt.
-      </p>
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mt-8 max-w-5xl mx-auto">
+        <p className="text-lg text-center md:text-left text-gray-700 max-w-2xl">
+          Perfumes can express your personality, mood and vibe. Choosing the right fragrance is about finding one that truly resonates with how you feel - here you can get inspired. 
+          Explore the most prominent fragrance families and click on any that interest you to learn more and discover example scents, which can later be included in your prompt.
+        </p>
+        <img
+          src="/logo_standing.png"
+          alt="Perfume illustration"
+          className="w-48 h-48 object-contain rounded-lg"
+        />
+      </div>
 
       <ul className="space-y-6 mt-10">
         {familiesData.map(({ family, description, nodes }) => (
