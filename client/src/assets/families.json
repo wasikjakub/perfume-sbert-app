@@ -27,7 +27,8 @@
       "smoky",
       "tobacco",
       "mossy",
-      "conifer"
+      "conifer",
+      "leather"
     ]
   },
   {
@@ -98,14 +99,7 @@
     ]
   },
   {
-    "family": "Leather",
-    "description": "Leather scents are strong and bold, evoking the smell of leather goods. They often include smoky or animalic undertones.",
-    "nodes": [
-      "leather"
-    ]
-  },
-  {
-    "family": "Other",
+    "family": "Niche",
     "description": "These scents do not fit neatly into a traditional category. They may be experimental, synthetic, or unique one-off aromas.",
     "nodes": [
       "metallic",
@@ -113,7 +107,7 @@
       "sour",
       "savory",
       "mineral",
-      "Champagne",
+      "champagne",
       "whiskey",
       "coca-cola",
       "beeswax",

@@ -5,7 +5,7 @@ import NotesSection from '../components/features/Home/NotesSection'
 
 const Home = () => {
   return (
-    <div className="space-y-7">
+    <div className="space-y-7 font-work-sans">
       <Hero />
       <QuizSection />
       <WardrobeSection />
