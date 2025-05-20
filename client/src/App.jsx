@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/shared/Header';
 import Home from './pages/Home';
 import Families from './pages/Families';
+import QuizPage from './pages/QuizPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/families" element={<Families />} />
+            <Route path="/quiz" element={<QuizPage />} />
           </Routes>
         </main>
       </div>
