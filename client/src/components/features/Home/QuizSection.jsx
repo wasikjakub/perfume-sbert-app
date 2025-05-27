@@ -9,6 +9,7 @@ export default function QuizSection() {
       buttonText="Start quiz"
       image={quizImg}
       imagePosition="right"
+      buttonLink="/quiz"
     />
   );
 }
