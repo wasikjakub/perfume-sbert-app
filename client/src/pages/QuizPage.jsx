@@ -263,28 +263,35 @@ const QuizPage = () => {
           {recommendations.length > 0 && (
             <h2 className="text-2xl font-semibold mb-4">Recommendations</h2>
           )}
-          <ul>
+          <ul className="space-y-4">
             {recommendations.map((perfume, i) => (
               <li
                 key={i}
                 className="bg-transparent p-4 rounded-lg mb-4 transition-all duration-700 opacity-100 translate-y-0 hover:scale-[1.02]"
               >
-                <a
-                  href={perfume.URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-lg font-semibold text-black"
-                >
-                  {perfume.Name} <span className="font-word-sans">by</span> {perfume.Designer}
-                </a>
-                <a
-                  href={perfume.URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-black hover:underline"
-                >
-                  {perfume.Brand} {perfume.Gender}
-                </a>
+                <div className="flex justify-between items-center">
+                  <div>
+                    <a
+                      href={perfume.URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-lg font-semibold text-black block"
+                    >
+                      {perfume.Name} <span className="font-word-sans">by</span> {perfume.Designer}
+                    </a>
+                    <a
+                      href={perfume.URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-black hover:underline block"
+                    >
+                      {perfume.Brand} {perfume.Gender}
+                    </a>
+                  </div>
+                  <span className="text-sm font-semibold text-black px-2 py-1 rounded-full text-center">
+                    {Math.round(perfume.final_score * 100)}% 
+                  </span>
+                </div>
               </li>
             ))}
           </ul>

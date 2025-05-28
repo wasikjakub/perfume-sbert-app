@@ -18,13 +18,13 @@ export default function Header() {
       <div className="flex items-center gap-8">
         <Link 
           to="/quiz" 
-          className="text-gray-600 hover:text-[#c4a075] transition font-semibold text-lg"
+          className="text-black hover:text-[#c4a075] transition font-work-sans font-bold text-lg"
         >
           Prompt Crafter
         </Link>
         <Link 
           to="/families" 
-          className="text-gray-600 hover:text-[#c4a075] transition font-semibold text-lg"
+          className="text-black hover:text-[#c4a075] transition font-work-sans font-bold text-lg"
         >
           Fragrance Families
         </Link>

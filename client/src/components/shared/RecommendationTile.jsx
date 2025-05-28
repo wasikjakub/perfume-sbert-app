@@ -1,4 +1,7 @@
 export default function RecommendationTile({ perfume, index, freshSearch }) {
+  // Convert the final_score to a percentage (assuming scores are between 0 and 1)
+  const similarityPercentage = Math.round(perfume.final_score * 100);
+
   return (
     <a
       href={perfume.URL}
@@ -13,9 +16,14 @@ export default function RecommendationTile({ perfume, index, freshSearch }) {
         opacity: freshSearch ? 0 : 1,
       }}
     >
-      <strong className="text-xl text-[#1D0200]">
-        {perfume.Name} by {perfume.Designer}
-      </strong>
+      <div className="flex justify-between items-center">
+        <strong className="text-xl text-[#1D0200]">
+          {perfume.Name} by {perfume.Designer}
+        </strong>
+        <span className="text-sm font-work-sans font-bold text-black px-2 py-1 rounded-full text-center">
+          {similarityPercentage}%
+        </span>
+      </div>
     </a>
   );
 }

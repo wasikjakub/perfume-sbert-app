@@ -107,13 +107,7 @@ export default function Hero() {
                     Recommendations
                   </h2>
                 )}
-                <div
-                  className={`overflow-y-auto pr-2 space-y-4 scrollbar-thin transition-all duration-300`}
-                  style={{
-                    maxHeight: scrolled ? "200px" : "400px",
-                    paddingTop: scrolled ? "5rem" : "0",
-                  }}
-                >
+                <div className="space-y-4">
                   {recommendations.map((perfume, index) => (
                     <RecommendationTile
                       key={index}
