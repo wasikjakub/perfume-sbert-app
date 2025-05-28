@@ -18,9 +18,20 @@ embeddings_path = os.path.join(current_dir, '../recommend_models/embeddings.npy'
 class PerfumeRecommender:
     def __init__(self, df, alpha=0.7):
         self.df = df[df['Name'].fillna('').str.strip() != ''].copy()
+        self.df = self.df.reset_index(drop=True)  
+        
         self.alpha = alpha
         self.model = SentenceTransformer(model_path)
-        self.embeddings = torch.tensor(np.load(embeddings_path))
+        
+        stored_embeddings = np.load(embeddings_path)
+        if len(stored_embeddings) > len(self.df):
+            stored_embeddings = stored_embeddings[:len(self.df)]
+        elif len(stored_embeddings) < len(self.df):
+            text_features = self._extract_text_features()
+            stored_embeddings = self.model.encode(text_features.tolist(), convert_to_tensor=True).cpu().numpy()
+            np.save(embeddings_path, stored_embeddings)
+            
+        self.embeddings = torch.tensor(stored_embeddings)
         self.scaler = MinMaxScaler()
         self.used_recommendations = set()
         self.include_prompt = ""
@@ -33,6 +44,7 @@ class PerfumeRecommender:
     def _extract_text_features(self):
         fields = ['Description', 'Accords', 'Designer', 'TopNotes', 'MiddleNotes', 'BaseNotes']
         self.df['text_features'] = self.df[fields].fillna('').agg(' '.join, axis=1)
+        return self.df['text_features']
 
     def _split_prompt_by_keywords(self, prompt):
         prompt_lower = prompt.lower()
