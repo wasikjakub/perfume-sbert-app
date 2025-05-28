@@ -67,7 +67,7 @@ export default function Hero() {
                     </span>
                     <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-[260px] bg-white text-black text-sm rounded-md shadow-md px-3 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50 text-center">
                       Describe any scent you can imagine in your words, for example:
-                      "I want vanilla perfumes with wooden notes for women"
+                      "I want vanilla perfumes with wooden notes for women". If you need inspiration - check out Fragrance Families
                     </span>
                   </span>
                 </p>

@@ -1,4 +1,3 @@
-import { FaUser, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -15,22 +14,20 @@ export default function Header() {
         </Link>
       </div>
 
-      {/* SEARCH + ICONS */}
-      <div className="flex items-center gap-4">
-        {/* SEARCH BAR – desktop only */}
-        <div className="hidden md:flex items-center bg-white px-4 py-1.5 rounded-full shadow-inner w-[28rem]">
-          <input
-            type="text"
-            placeholder="Search"
-            className="bg-transparent outline-none text-sm text-gray-700 flex-1 placeholder:text-gray-400"
-          />
-        </div>
-
-        {/* ICONS */}
-        <div className="flex items-center gap-4 text-gray-600 text-lg">
-          <FaHeart className="cursor-pointer hover:text-[#c4a075] transition" />
-          <FaUser className="cursor-pointer hover:text-[#c4a075] transition" />
-        </div>
+      {/* NAVIGATION LINKS */}
+      <div className="flex items-center gap-8">
+        <Link 
+          to="/quiz" 
+          className="text-gray-600 hover:text-[#c4a075] transition font-semibold text-lg"
+        >
+          Prompt Crafter
+        </Link>
+        <Link 
+          to="/families" 
+          className="text-gray-600 hover:text-[#c4a075] transition font-semibold text-lg"
+        >
+          Fragrance Families
+        </Link>
       </div>
     </header>
   );
