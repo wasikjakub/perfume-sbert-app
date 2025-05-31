@@ -5,6 +5,10 @@ Perfume recommendation system that analyzes user prompts and suggests the most s
 ## Demo
 tba
 
+## Data Pipeline
+
+![mermaid-diagram-2025-05-31-145942](https://github.com/user-attachments/assets/810054c5-2803-48cc-8fd5-da4300872820)
+
 ## General Overview
 
 The system provides personalized perfume recommendations by:
@@ -39,10 +43,6 @@ The system leverages state-of-the-art Sentence Transformers for natural language
    - Implements efficient similarity search using vector embeddings
    - Matches user queries with perfume descriptions in high-dimensional space
    - Provides contextually relevant recommendations based on semantic understanding
-
-## Data Pipeline
-
-![Data Pipeline](data-pipeline.png)
 
 ## Installation & Setup
 
