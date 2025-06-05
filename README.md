@@ -3,7 +3,7 @@
 Perfume recommendation system that analyzes user prompts and suggests the most suitable fragrances based on machine learning algorithms and user preference analysis. The solution is built using Flask + React architecture with MySQL database backend.
 
 ## Demo
-Check out the demo: https://www.linkedin.com/posts/jakub-wasikk_introducing-perfume-ai-powered-perfume-activity-7336053749892706304-W6DQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD6m3ZIB2AhtSbGKtsJbKzbLQG5c-OZ5cQM
+Check out the [demo](https://tinyurl.com/perfume-app-demo)
 
 ## Data Pipeline
 
